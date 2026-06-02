@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import pricesRoutes from './routes/prices.routes.js';
 import countriesRoutes from './routes/countries.routes.js';
+import indicatorsRoutes from './routes/indicators.routes.js';
+import timeRoutes from './routes/time.routes.js';
 
 const app = express();
 
@@ -20,6 +22,11 @@ app.use('/prices', pricesRoutes); // Directly mounts /prices as requested
 app.use('/api/prices', pricesRoutes); // Conventionally mounts /api/prices
 app.use('/countries', countriesRoutes);
 app.use('/api/countries', countriesRoutes);
+app.use('/indicators', indicatorsRoutes);
+app.use('/api/indicators', indicatorsRoutes);
+app.use('/', timeRoutes);
+app.use('/api', timeRoutes);
+
 
 
 // Catch-all 404 handler
