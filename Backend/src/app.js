@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import pricesRoutes from './routes/prices.routes.js';
+import countriesRoutes from './routes/countries.routes.js';
 
 const app = express();
 
@@ -17,6 +18,9 @@ app.get('/health', (req, res) => {
 // Mount Routes
 app.use('/prices', pricesRoutes); // Directly mounts /prices as requested
 app.use('/api/prices', pricesRoutes); // Conventionally mounts /api/prices
+app.use('/countries', countriesRoutes);
+app.use('/api/countries', countriesRoutes);
+
 
 // Catch-all 404 handler
 app.use((req, res, next) => {
